@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="layout.xhtml">
+    <ui:define name="title">Создать новую книгу</ui:define>
+    <ui:define name="content">
+        <hr/>
+        <h1>Факультеты</h1>
+        <h:dataTable id="facultyList" value="#{facultyEJB.findAllFaculty()}" var="fk" border="1">
+            <h:column>
+                #{fk.id}
+            </h:column>
+            <h:column>
+                #{fk.name}
+            </h:column>
+        </h:dataTable>
+
+
+        <h:selectOneMenu>
+            <f:selectItems value="#{facultyEJB.findAllFaculty()}" var="fk" itemLabel="#{fk.name}"/>
+        </h:selectOneMenu>
+
+
+        <h:dataTable id="monday" value="" var="monday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Понедельник"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+
+        <h:dataTable id="tuesday" value="" var="tuesday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Вторник"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+        <h:dataTable id="wednesday" value="" var="wednesday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Среда"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+
+        <h:dataTable id="thursday" value="" var="thursday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Понедельник"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+
+        <h:dataTable id="friday" value="" var="friday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Понедельник"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+
+        <h:dataTable id="saturday" value="" var="saturday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Понедельник"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+
+        <h:dataTable id="sunday" value="" var="sunday" border="1">
+            <f:facet name="header">
+                <h:outputText value="Понедельник"/>
+            </f:facet>
+            <h:column>
+
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="layout.xhtml">
+    <f:metadata>
+        <f:viewParam name="id" value="#{bookController.book.id}"/>
+        <f:viewAction action="#{bookController.doFindBookById}"/>
+    </f:metadata>
+    <ui:define name="title">Показать книгу</ui:define>
+    <ui:define name="content">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Название : "/>
+            <h:outputText value="#{bookController.book.title}"/>
+            <h:outputLabel value="Цена : "/>
+            <h:outputText value="#{bookController.book.price}"/>
+            <h:outputLabel value="Описание : "/>
+            <h:outputText value="#{bookController.book.description}" cols="16"
+                          rows="3"/>
+            <h:outputLabel value="Количество страниц : "/>
+            <h:outputText value="#{bookController.book.nbOfPage}"/>
+            <h:outputLabel value="Иллюстрации : "/>
+            <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>
+</html>
