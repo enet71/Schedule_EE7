@@ -5,7 +5,7 @@ import javax.persistence.PersistenceContext;
 
 @DataSourceDefinition(name = "java:global/jdbc/DS",
         className = "oracle.jdbc.OracleDriver",
-        url = "jdbc:oracle:thin:@localhost:57393:orcl",
+        url = "jdbc:oracle:thin:@localhost:50215:orcl",
         user = "c##enet",//"c##diplom",
         password = "enet"//"555792"
 )

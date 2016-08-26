@@ -9,27 +9,29 @@
     <ui:define name="content">
         <hr/>
         <h1>Факультеты</h1>
-        <h:dataTable id="facultyList" value="#{facultyEJB.findAllFaculty()}" var="fk" border="1">
-            <h:column>
-                #{fk.id}
-            </h:column>
-            <h:column>
-                #{fk.name}
-            </h:column>
-        </h:dataTable>
 
+        <h:form id="faculty">
+            <h:selectOneMenu value="#{groupController.data}">
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите факультет" noSelectionOption="true" />
+                <f:selectItems value="#{facultyEJB.findAllFaculty()}" var="fk" itemLabel="#{fk.name}" itemValue="#{fk.id}"/>
+                <f:ajax render="group" />
+            </h:selectOneMenu>
+        </h:form>
 
-        <h:selectOneMenu>
-            <f:selectItems value="#{facultyEJB.findAllFaculty()}" var="fk" itemLabel="#{fk.name}"/>
-        </h:selectOneMenu>
+        <h:form id="group">
+            <h:selectOneMenu>
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите группу" noSelectionOption="true" />
+                <f:selectItems value="#{groupController.doFindGroupsByFaculty()}" var="gr" itemLabel="#{gr.name}" itemValue="#{gr.id}"/>
+                <f:ajax render="monday" />
+            </h:selectOneMenu>
+        </h:form>
 
-
-        <h:dataTable id="monday" value="" var="monday" border="1">
+        <h:dataTable id="monday" value="#{groupController.doFindGroupsByFaculty()}" var="monday" border="1">
             <f:facet name="header">
                 <h:outputText value="Понедельник"/>
             </f:facet>
             <h:column>
-
+                <h:outputText value="#{monday.name}"/>
             </h:column>
         </h:dataTable>
 
