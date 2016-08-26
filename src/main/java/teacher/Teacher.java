@@ -9,7 +9,7 @@ public class Teacher {
     private Long id;
     private String name;
     private String surname;
-    private String middlename;
+    private String middleName;
 
     public Teacher() {
     }
@@ -38,11 +38,11 @@ public class Teacher {
         this.surname = surname;
     }
 
-    public String getMiddlename() {
-        return middlename;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setMiddlename(String middlename) {
-        this.middlename = middlename;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 }

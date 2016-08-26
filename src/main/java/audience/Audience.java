@@ -1,5 +1,6 @@
 package audience;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,6 +9,7 @@ public class Audience {
     @Id
     private Long id;
     private String building;
+    @Column(name = "nmb")
     private String number;
 
     public Audience() {

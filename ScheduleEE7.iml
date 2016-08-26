@@ -48,5 +48,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.glassfish.main.extras:glassfish-embedded-all:3.1.2.2" level="project" />
     <orderEntry type="library" name="Maven: com.oracle:ojdbc7:12.1.0.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.primefaces:primefaces:6.0" level="project" />
   </component>
 </module>

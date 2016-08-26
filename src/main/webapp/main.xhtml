@@ -3,90 +3,86 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 <ui:composition template="layout.xhtml">
-    <ui:define name="title">Создать новую книгу</ui:define>
+    <ui:define name="title">Рассписание</ui:define>
     <ui:define name="content">
-        <hr/>
-        <h1>Факультеты</h1>
-
-        <h:form id="faculty">
+        <h:form id="faculty" style="margin-top:20px">
             <h:selectOneMenu value="#{groupController.data}">
-                <f:selectItem itemValue="#{null}" itemLabel="Выберите факультет" noSelectionOption="true" />
-                <f:selectItems value="#{facultyEJB.findAllFaculty()}" var="fk" itemLabel="#{fk.name}" itemValue="#{fk.id}"/>
-                <f:ajax render="group" />
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите факультет" noSelectionOption="true"/>
+                <f:selectItems value="#{facultyEJB.findAllFaculty()}" var="fk" itemLabel="#{fk.name}"
+                               itemValue="#{fk.id}"/>
+                <f:ajax render="group"/>
             </h:selectOneMenu>
         </h:form>
 
-        <h:form id="group">
+        <h:form id="group" style="margin-top:20px">
             <h:selectOneMenu>
-                <f:selectItem itemValue="#{null}" itemLabel="Выберите группу" noSelectionOption="true" />
-                <f:selectItems value="#{groupController.doFindGroupsByFaculty()}" var="gr" itemLabel="#{gr.name}" itemValue="#{gr.id}"/>
-                <f:ajax render="monday" />
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите группу" noSelectionOption="true"/>
+                <f:selectItems value="#{groupController.doFindGroupsByFaculty()}" var="gr" itemLabel="#{gr.name}"
+                               itemValue="#{gr.id}"/>
+                <f:ajax render="monday"/>
             </h:selectOneMenu>
         </h:form>
 
-        <h:dataTable id="monday" value="#{groupController.doFindGroupsByFaculty()}" var="monday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Понедельник"/>
-            </f:facet>
-            <h:column>
-                <h:outputText value="#{monday.name}"/>
-            </h:column>
-        </h:dataTable>
+        <c:set var="dayWeek" value="${['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота']}"
+               scope="application"/>
 
-        <h:dataTable id="tuesday" value="" var="tuesday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Вторник"/>
-            </f:facet>
-            <h:column>
 
-            </h:column>
-        </h:dataTable>
-        <h:dataTable id="wednesday" value="" var="wednesday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Среда"/>
-            </f:facet>
-            <h:column>
+        <c:forEach var="j" begin="0" end="5">
+            <p:panelGrid style="margin-top:20px">
+                <p:row>
+                    <p:column colspan="5">#{dayWeek[j]}</p:column>
+                </p:row>
 
-            </h:column>
-        </h:dataTable>
+                <p:row>
+                    <p:column>№</p:column>
+                    <p:column>Предмет</p:column>
+                    <p:column>Кабинет</p:column>
+                    <p:column>Преподаватель</p:column>
+                    <p:column>Период</p:column>
+                </p:row>
 
-        <h:dataTable id="thursday" value="" var="thursday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Понедельник"/>
-            </f:facet>
-            <h:column>
 
-            </h:column>
-        </h:dataTable>
+                <c:forEach var="i" begin="1" end="6">
+                    <c:set var="list" value="#{coupleEJB.findCouple(j + 1,i)}"/>
+                    <c:if test="#{fn:length(list) > 0}">
+                        <p:row>
+                            <p:column rowspan="#{fn:length(list) + 1}">
+                                <h:outputText value="#{i}"/>
+                            </p:column>
+                        </p:row>
+                    </c:if>
 
-        <h:dataTable id="friday" value="" var="friday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Понедельник"/>
-            </f:facet>
-            <h:column>
+                    <c:forEach var="item" items="#{list}">
+                        <p:row>
+                            <p:column>
+                                <h:outputText value="#{item.subject.name}"/>
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{item.number}"/>
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{item.teacher.name} #{item.teacher.surname}"/>
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{item.begin}">
+                                    <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                </h:outputText>
+                                -
+                                <h:outputText value="#{item.end}">
+                                    <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                </h:outputText>
+                            </p:column>
+                        </p:row>
+                    </c:forEach>
+                </c:forEach>
+            </p:panelGrid>
+        </c:forEach>
 
-            </h:column>
-        </h:dataTable>
 
-        <h:dataTable id="saturday" value="" var="saturday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Понедельник"/>
-            </f:facet>
-            <h:column>
-
-            </h:column>
-        </h:dataTable>
-
-        <h:dataTable id="sunday" value="" var="sunday" border="1">
-            <f:facet name="header">
-                <h:outputText value="Понедельник"/>
-            </f:facet>
-            <h:column>
-
-            </h:column>
-        </h:dataTable>
     </ui:define>
 </ui:composition>
 </html>
