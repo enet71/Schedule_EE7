@@ -13,8 +13,16 @@ public class GroupController {
     private Group group = new Group();
     private String data = "0";
 
-    public List<Group> doFindGroupsByFaculty(){
+    public List<Group> doFindGroupsByFaculty() {
         return groupEJB.findGroupByFaculty(Long.parseLong(data));
+    }
+
+    public List<Group> findAllGroup() {
+        if(data.equals("0")){
+            return groupEJB.findAllGroup();
+        }else {
+            return groupEJB.findGroupByFaculty(Long.parseLong(data));
+        }
     }
 
     public String getData() {

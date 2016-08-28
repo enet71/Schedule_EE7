@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
@@ -25,11 +26,12 @@ public class CoupleEJB {
         return em.createQuery(criteriaQuery).getResultList();
     }
 
-    public List<Couple> findCouple(String dayWeek,String number) {
+    public List<Couple> findCouple(String groupId, String dayWeek, String number) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Couple> criteriaQuery = builder.createQuery(Couple.class);
         Root<Couple> root = criteriaQuery.from(Couple.class);
-        criteriaQuery.select(root).where(builder.and(builder.equal(root.get(Couple_.dayWeek),dayWeek),builder.equal(root.get(Couple_.number),number)));
+        Join group = root.join("group");
+        criteriaQuery.select(root).where(builder.and(builder.equal(root.get(Couple_.dayWeek), dayWeek), builder.equal(root.get(Couple_.number), number),builder.equal(group.get("id"), groupId)));
         return em.createQuery(criteriaQuery).getResultList();
     }
 }

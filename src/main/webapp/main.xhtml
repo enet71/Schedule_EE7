@@ -19,70 +19,71 @@
         </h:form>
 
         <h:form id="group" style="margin-top:20px">
-            <h:selectOneMenu>
+            <h:selectOneMenu value="#{coupleController.group}">
                 <f:selectItem itemValue="#{null}" itemLabel="Выберите группу" noSelectionOption="true"/>
-                <f:selectItems value="#{groupController.doFindGroupsByFaculty()}" var="gr" itemLabel="#{gr.name}"
+                <f:selectItems value="#{groupController.findAllGroup()}" var="gr" itemLabel="#{gr.name}"
                                itemValue="#{gr.id}"/>
-                <f:ajax render="monday"/>
+                <f:ajax render="tes tb"/>
             </h:selectOneMenu>
         </h:form>
+
 
         <c:set var="dayWeek" value="${['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота']}"
                scope="application"/>
 
+        <h:form id="tb">
+            <c:forEach var="j" begin="0" end="5">
+                <p:panelGrid style="margin-top:20px">
+                    <p:row>
+                        <p:column colspan="5">#{dayWeek[j]}</p:column>
+                    </p:row>
 
-        <c:forEach var="j" begin="0" end="5">
-            <p:panelGrid style="margin-top:20px">
-                <p:row>
-                    <p:column colspan="5">#{dayWeek[j]}</p:column>
-                </p:row>
-
-                <p:row>
-                    <p:column>№</p:column>
-                    <p:column>Предмет</p:column>
-                    <p:column>Кабинет</p:column>
-                    <p:column>Преподаватель</p:column>
-                    <p:column>Период</p:column>
-                </p:row>
+                    <p:row>
+                        <p:column>№</p:column>
+                        <p:column>Предмет</p:column>
+                        <p:column>Кабинет</p:column>
+                        <p:column>Преподаватель</p:column>
+                        <p:column>Период</p:column>
+                    </p:row>
 
 
-                <c:forEach var="i" begin="1" end="6">
-                    <c:set var="list" value="#{coupleEJB.findCouple(j + 1,i)}"/>
-                    <c:if test="#{fn:length(list) > 0}">
-                        <p:row>
-                            <p:column rowspan="#{fn:length(list) + 1}">
-                                <h:outputText value="#{i}"/>
-                            </p:column>
-                        </p:row>
-                    </c:if>
+                    <c:forEach var="i" begin="1" end="6">
+                        <c:set var="list" value="#{coupleController.findCouple(j + 1,i)}"/>
+                        <c:if test="#{fn:length(list) > 0}">
+                            <p:row>
+                                <p:column rowspan="#{fn:length(list) + 1}">
+                                    <h:outputText value="#{i}"/>
+                                </p:column>
+                            </p:row>
+                        </c:if>
 
-                    <c:forEach var="item" items="#{list}">
-                        <p:row>
-                            <p:column>
-                                <h:outputText value="#{item.subject.name}"/>
-                            </p:column>
-                            <p:column>
-                                <h:outputText value="#{item.number}"/>
-                            </p:column>
-                            <p:column>
-                                <h:outputText value="#{item.teacher.name} #{item.teacher.surname}"/>
-                            </p:column>
-                            <p:column>
-                                <h:outputText value="#{item.begin}">
-                                    <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
-                                </h:outputText>
-                                -
-                                <h:outputText value="#{item.end}">
-                                    <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
-                                </h:outputText>
-                            </p:column>
-                        </p:row>
+                        <c:forEach var="item" items="#{list}">
+                            <p:row>
+                                <p:column>
+                                    <h:outputText value="#{item.subject.name}"/>
+                                </p:column>
+                                <p:column>
+                                    <h:outputText value="#{item.number}"/>
+                                </p:column>
+                                <p:column>
+                                    <h:outputText value="#{item.teacher.name} #{item.teacher.surname}"/>
+                                </p:column>
+                                <p:column>
+                                    <h:outputText value="#{item.begin}">
+                                        <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                    </h:outputText>
+                                    -
+                                    <h:outputText value="#{item.end}">
+                                        <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                    </h:outputText>
+                                </p:column>
+                            </p:row>
+                        </c:forEach>
                     </c:forEach>
-                </c:forEach>
-            </p:panelGrid>
-        </c:forEach>
+                </p:panelGrid>
+            </c:forEach>
 
-
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>
