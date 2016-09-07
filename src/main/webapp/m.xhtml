@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="layout.xhtml">
+    <ui:define name="title">Рассписание</ui:define>
+    <ui:define name="content">
+        <h:form id="faculty" style="margin-top:20px">
+            <h:selectOneMenu value="#{groupController.data}">
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите факультет" noSelectionOption="true"/>
+                <f:selectItems value="#{facultyEJB.findAllFaculty()}" var="fk" itemLabel="#{fk.name}"
+                               itemValue="#{fk.id}"/>
+                <f:ajax render="group"/>
+            </h:selectOneMenu>
+        </h:form>
+
+        <h:form id="group" style="margin-top:20px">
+            <h:selectOneMenu value="#{coupleController.group}">
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите группу" noSelectionOption="true"/>
+                <f:selectItems value="#{groupController.findAllGroup()}" var="gr" itemLabel="#{gr.name}"
+                               itemValue="#{gr.id}"/>
+                <f:ajax render="tes tb"/>
+            </h:selectOneMenu>
+        </h:form>
+
+
+        <c:set var="dayWeek" value="${['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота']}"
+               scope="application"/>
+
+        <h:form id="tb">
+            <c:forEach var="j" begin="0" end="5">
+                <h:form id="day">
+                    <p:panelGrid style="margin-top:20px">
+                        <p:row>
+                            <p:column colspan="5">#{dayWeek[j]}</p:column>
+                        </p:row>
+
+                        <p:row>
+                            <p:column>№</p:column>
+                            <p:column>Предмет</p:column>
+                            <p:column>Кабинет</p:column>
+                            <p:column>Преподаватель</p:column>
+                            <p:column>Период</p:column>
+                        </p:row>
+
+
+                        <c:forEach var="i" begin="1" end="6">
+                            <c:set var="list" value="#{coupleController.findCouple(j + 1,i)}"/>
+                            <c:if test="#{fn:length(list) > 0}">
+                                <p:row>
+                                    <p:column rowspan="#{fn:length(list) + 1}">
+                                        <h:outputText value="#{i}"/>
+                                    </p:column>
+                                </p:row>
+                            </c:if>
+
+                            <c:forEach var="item" items="#{list}">
+                                <p:row>
+                                    <p:column>
+                                        <h:outputText value="#{item.subject.name}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{item.number}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{item.teacher.name} #{item.teacher.surname}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{item.begin}">
+                                            <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                        </h:outputText>
+                                        -
+                                        <h:outputText value="#{item.end}">
+                                            <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                        </h:outputText>
+                                    </p:column>
+                                </p:row>
+                            </c:forEach>
+                        </c:forEach>
+                    </p:panelGrid>
+                </h:form>
+            </c:forEach>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

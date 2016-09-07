@@ -5,14 +5,14 @@ import faculty.Faculty;
 import javax.persistence.*;
 
 @Entity
-@Table(name="GRP")
+@Table(name = "GRP")
 public class Group {
     @Id
     private Long id;
     private String name;
     private int course;
     @OneToOne
-    @JoinColumn(name="IDFACULTY")
+    @JoinColumn(name = "IDFACULTY")
     private Faculty faculty;
 
     public Group() {

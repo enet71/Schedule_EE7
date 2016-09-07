@@ -4,6 +4,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -31,7 +32,14 @@ public class CoupleEJB {
         CriteriaQuery<Couple> criteriaQuery = builder.createQuery(Couple.class);
         Root<Couple> root = criteriaQuery.from(Couple.class);
         Join group = root.join("group");
-        criteriaQuery.select(root).where(builder.and(builder.equal(root.get(Couple_.dayWeek), dayWeek), builder.equal(root.get(Couple_.number), number),builder.equal(group.get("id"), groupId)));
+        criteriaQuery.select(root).where(builder.and(builder.equal(root.get(Couple_.dayWeek), dayWeek), builder.equal(root.get(Couple_.number), number), builder.equal(group.get("id"), groupId)));
         return em.createQuery(criteriaQuery).getResultList();
+    }
+
+    public void createCouple(Couple couple){
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(couple);
+        tx.commit();
     }
 }

@@ -33,7 +33,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ScheduleEE7" target="1.7" />
+      <module name="ScheduleEE7" target="1.8" />
       <module name="TestEE" target="1.7" />
     </bytecodeTargetLevel>
   </component>

@@ -40,4 +40,9 @@ public class CoupleController {
     public void setCouple(Couple couple) {
         this.couple = couple;
     }
+
+    public void createCouple(){
+        System.out.println("TEST " + couple.getSubject().getId());
+        //coupleEJB.createCouple(couple);
+    }
 }

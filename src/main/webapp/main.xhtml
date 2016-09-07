@@ -33,56 +33,120 @@
 
         <h:form id="tb">
             <c:forEach var="j" begin="0" end="5">
-                <p:panelGrid style="margin-top:20px">
-                    <p:row>
-                        <p:column colspan="5">#{dayWeek[j]}</p:column>
-                    </p:row>
+                <h:form id="day">
+                    <p:panelGrid style="margin-top:20px">
+                        <p:row>
+                            <p:column colspan="8">#{dayWeek[j]}</p:column>
+                        </p:row>
 
-                    <p:row>
-                        <p:column>№</p:column>
-                        <p:column>Предмет</p:column>
-                        <p:column>Кабинет</p:column>
-                        <p:column>Преподаватель</p:column>
-                        <p:column>Период</p:column>
-                    </p:row>
+                        <p:row>
+                            <p:column>№</p:column>
+                            <p:column>Предмет</p:column>
+                            <p:column>Кабинет</p:column>
+                            <p:column>Преподаватель</p:column>
+                            <p:column>Период</p:column>
+                            <p:column>Test</p:column>
+                            <p:column>Test</p:column>
+                            <p:column>Test</p:column>
+                        </p:row>
 
 
-                    <c:forEach var="i" begin="1" end="6">
-                        <c:set var="list" value="#{coupleController.findCouple(j + 1,i)}"/>
-                        <c:if test="#{fn:length(list) > 0}">
-                            <p:row>
-                                <p:column rowspan="#{fn:length(list) + 1}">
-                                    <h:outputText value="#{i}"/>
-                                </p:column>
-                            </p:row>
-                        </c:if>
+                        <c:forEach var="i" begin="1" end="6">
+                            <c:set var="list" value="#{coupleController.findCouple(j + 1,i)}"/>
+                            <c:if test="#{fn:length(list) > 0}">
+                                <p:row>
+                                    <p:column rowspan="#{fn:length(list) + 1}">
+                                        <h:outputText value="#{i}"/>
+                                    </p:column>
+                                </p:row>
+                            </c:if>
 
-                        <c:forEach var="item" items="#{list}">
-                            <p:row>
-                                <p:column>
-                                    <h:outputText value="#{item.subject.name}"/>
-                                </p:column>
-                                <p:column>
-                                    <h:outputText value="#{item.number}"/>
-                                </p:column>
-                                <p:column>
-                                    <h:outputText value="#{item.teacher.name} #{item.teacher.surname}"/>
-                                </p:column>
-                                <p:column>
-                                    <h:outputText value="#{item.begin}">
-                                        <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
-                                    </h:outputText>
-                                    -
-                                    <h:outputText value="#{item.end}">
-                                        <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
-                                    </h:outputText>
-                                </p:column>
-                            </p:row>
+                            <c:forEach var="item" items="#{list}">
+                                <p:row>
+                                    <p:column>
+                                        <h:outputText value="#{item.subject.name}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{item.number}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{item.teacher.name} #{item.teacher.surname}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputText value="#{item.begin}">
+                                            <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                        </h:outputText>
+                                        -
+                                        <h:outputText value="#{item.end}">
+                                            <f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+                                        </h:outputText>
+                                    </p:column>
+                                    <p:column>
+                                        <h:commandButton value="Add" >
+
+                                        </h:commandButton>
+                                    </p:column>
+                                    <p:column>
+                                        <h:commandButton value="Edit" >
+
+                                        </h:commandButton>
+                                    </p:column>
+                                    <p:column>
+                                        <h:commandButton value="Remove" >
+
+                                        </h:commandButton>
+                                    </p:column>
+                                </p:row>
+                            </c:forEach>
                         </c:forEach>
-                    </c:forEach>
-                </p:panelGrid>
+                    </p:panelGrid>
+                </h:form>
             </c:forEach>
 
+        </h:form>
+
+        <h:form id="add">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="ИД : "/>
+                <h:inputText value="#{coupleController.couple.id}"/>
+                <h:outputLabel value="Предмет : "/>
+                <h:inputText value="#{coupleController.couple.subject.id}"/>
+                <h:outputLabel value="Группа : "/>
+                <h:inputText value="#{coupleController.couple.group.id}"/>
+                <h:outputLabel value="Номер : "/>
+                <h:inputText value="#{coupleController.couple.number}"/>
+                <h:outputLabel value="Аудитория : "/>
+                <h:inputText value="#{coupleController.couple.audience.id}"/>
+                <h:outputLabel value="Начало : "/>
+                <h:inputText value="#{coupleController.couple.begin}"/>
+                <h:outputLabel value="Конец : "/>
+                <h:inputText value="#{coupleController.couple.end}"/>
+                <h:outputLabel value="Звезда : "/>
+                <h:inputText value="#{coupleController.couple.star}"/>
+                <h:outputLabel value="День недели : "/>
+                <h:inputText value="#{coupleController.couple.dayWeek}"/>
+                <h:outputLabel value="Преподаватель : "/>
+                <h:inputText value="#{coupleController.couple.teacher.id}"/>
+                <h:outputLabel value="Тип : "/>
+                <h:inputText value="#{coupleController.couple.type}"/>
+            </h:panelGrid>
+            <h:commandButton value="Добавить предмет" action="#{coupleController.createCouple}">
+                <f:ajax execute="@form" render="tb"/>
+            </h:commandButton>
+        </h:form>
+
+
+
+        <h:form id="addSubject">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="ИД : "/>
+                <h:inputText value="#{subjectController.subject.id}"/>
+                <h:outputLabel value="Название : "/>
+                <h:inputText value="#{subjectController.subject.name}"/>
+            </h:panelGrid>
+            <h:commandButton value="Добавить предмет" action="#{subjectController.createSubject}">
+                <f:ajax execute="@form"/>
+            </h:commandButton>
         </h:form>
     </ui:define>
 </ui:composition>
