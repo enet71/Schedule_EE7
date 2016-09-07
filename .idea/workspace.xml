@@ -1,82 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5eaf4ac7-9840-4810-9ae8-ac35fe5086e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/Arquillian.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Log.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_arquillian_junit_arquillian_junit_container_1_1_11_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_arquillian_junit_arquillian_junit_core_1_1_11_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/subject/SubjectController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/subject/SubjectEJB.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/TS.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/admin/index.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/testUser/index.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/login.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/login_error.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/m.xhtml" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\ScheduleEE7-1.0\WEB-INF\classes\Book.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\ScheduleEE7-1.0\WEB-INF\classes\BookController.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\ScheduleEE7-1.0\WEB-INF\classes\BookEJB.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\ScheduleEE7-1.0\newBook.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\ScheduleEE7-1.0\viewBook.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\classes\Book.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\classes\BookController.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\ScheduleEE7\target\classes\BookEJB.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/audience/Audience.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/audience/Audience.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/audience/Audience.class" afterPath="$PROJECT_DIR$/target/classes/audience/Audience.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/Couple.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/Couple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/couple/Couple.class" afterPath="$PROJECT_DIR$/target/classes/couple/Couple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/CoupleController.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/CoupleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/couple/CoupleController.class" afterPath="$PROJECT_DIR$/target/classes/couple/CoupleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/CoupleEJB.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/CoupleEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/couple/CoupleEJB.class" afterPath="$PROJECT_DIR$/target/classes/couple/CoupleEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/Couple_.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/couple/Couple_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/couple/Couple_.class" afterPath="$PROJECT_DIR$/target/classes/couple/Couple_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/Faculty.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/Faculty.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/faculty/Faculty.class" afterPath="$PROJECT_DIR$/target/classes/faculty/Faculty.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/FacultyController.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/FacultyController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/faculty/FacultyController.class" afterPath="$PROJECT_DIR$/target/classes/faculty/FacultyController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/FacultyEJB.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/FacultyEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/faculty/FacultyEJB.class" afterPath="$PROJECT_DIR$/target/classes/faculty/FacultyEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/Faculty_.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/faculty/Faculty_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/faculty/Faculty_.class" afterPath="$PROJECT_DIR$/target/classes/faculty/Faculty_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/Group.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/Group.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/group/Group.class" afterPath="$PROJECT_DIR$/target/classes/group/Group.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/GroupController.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/GroupController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/group/GroupController.class" afterPath="$PROJECT_DIR$/target/classes/group/GroupController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/GroupEJB.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/GroupEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/group/GroupEJB.class" afterPath="$PROJECT_DIR$/target/classes/group/GroupEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/Group_.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/group/Group_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/group/Group_.class" afterPath="$PROJECT_DIR$/target/classes/group/Group_.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/Resources.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/Resources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Resources.class" afterPath="$PROJECT_DIR$/target/classes/Resources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0.war" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/subject/Subject.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/subject/Subject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/subject/Subject.class" afterPath="$PROJECT_DIR$/target/classes/subject/Subject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/teacher/Teacher.class" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/classes/teacher/Teacher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/teacher/Teacher.class" afterPath="$PROJECT_DIR$/target/classes/teacher/Teacher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/couple/CoupleController.java" afterPath="$PROJECT_DIR$/src/main/java/couple/CoupleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/couple/CoupleEJB.java" afterPath="$PROJECT_DIR$/src/main/java/couple/CoupleEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/group/Group.java" afterPath="$PROJECT_DIR$/src/main/java/group/Group.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Resources.java" afterPath="$PROJECT_DIR$/src/main/java/Resources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScheduleEE7.iml" afterPath="$PROJECT_DIR$/ScheduleEE7.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ScheduleEE7_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ScheduleEE7_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/subject/Subject.java" afterPath="$PROJECT_DIR$/src/main/java/subject/Subject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/main.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/main.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/main.xhtml" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/main.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/ScheduleEE7-1.0/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="5eaf4ac7-9840-4810-9ae8-ac35fe5086e0" name="Default" comment="" />
     <ignored path="TestEE.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1323,7 +1248,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
